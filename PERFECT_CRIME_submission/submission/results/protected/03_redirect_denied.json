@@ -1,0 +1,5 @@
+{
+  "allowed": false,
+  "event_id": "SANDBOX-000001",
+  "reason": "Роль не может изменять получателя"
+}

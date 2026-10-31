@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "files_verified": 8,
+  "events_verified": 12,
+  "sqlite": {
+    "snapshot_before.sqlite": {
+      "integrity": "ok",
+      "foreign_key_errors": 0
+    },
+    "snapshot_after.sqlite": {
+      "integrity": "ok",
+      "foreign_key_errors": 0
+    }
+  },
+  "provenance": "SHA256 сверяет байты с данным manifest; источник не аутентифицируется"
+}

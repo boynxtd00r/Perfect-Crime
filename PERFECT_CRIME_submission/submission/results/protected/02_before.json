@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "columns": [
+    "tx_id",
+    "to_account",
+    "amount_minor",
+    "status",
+    "updated_at"
+  ],
+  "rows": [
+    [
+      "TX-0001",
+      "LAB-ACC-0016",
+      7221621,
+      "APPROVED",
+      "2026-04-16T09:30:00Z"
+    ]
+  ],
+  "truncated": false,
+  "cells_truncated": false
+}

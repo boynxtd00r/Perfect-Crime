@@ -1,0 +1,11 @@
+{
+  "allowed": true,
+  "event_id": "SANDBOX-000001",
+  "before": {
+    "to_account": "LAB-ACC-0016"
+  },
+  "after": {
+    "to_account": "LAB-ACC-0033"
+  },
+  "reason": "Учебный уязвимый режим"
+}

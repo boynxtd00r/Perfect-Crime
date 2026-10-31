@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "sandbox": "/home/claude/lab/the-perfect-crime/work/blue-neg/sandbox.sqlite",
+  "journal": "/home/claude/lab/the-perfect-crime/work/blue-neg/sandbox_audit.jsonl",
+  "reset": false,
+  "evidence_verified": true
+}

@@ -1,0 +1,38 @@
+{
+  "counts": {
+    "orders": 240,
+    "before": 240,
+    "after": 240,
+    "bank": 240
+  },
+  "totals_minor": {
+    "orders": 1457435259,
+    "before": 1457435259,
+    "after": 1457435259,
+    "bank": 1457435259
+  },
+  "status_before": {
+    "APPROVED": 240,
+    "SETTLED": 0
+  },
+  "status_after": {
+    "APPROVED": 0,
+    "SETTLED": 240
+  },
+  "status_changed_rows": 240,
+  "unauthorized_tx_ids": [
+    "TX-0071",
+    "TX-0128",
+    "TX-0203"
+  ],
+  "diverted_amount_minor": 495000000,
+  "diverted_display": "4950000 руб. 00 коп."
+}
+
+TX | ПОРУЧЕНИЕ | ДО | ПОСЛЕ | БАНК | ЗАЯВКА | ДЕТАЛИ | КЛАССИФИКАЦИЯ
+TX-0042 | LAB-ACC-0012 | LAB-ACC-0012 | LAB-ACC-0030 | LAB-ACC-0030 | TKT-2048/APPROVED | статус APPROVED->SETTLED | законное исправление
+TX-0071 | LAB-ACC-0024 | LAB-ACC-0024 | LAB-ACC-0031 | LAB-ACC-0031 | нет заявки | статус APPROVED->SETTLED | НЕСАНКЦИОНИРОВАННО
+TX-0128 | LAB-ACC-0006 | LAB-ACC-0006 | LAB-ACC-0031 | LAB-ACC-0031 | TKT-2051/REJECTED | статус APPROVED->SETTLED | НЕСАНКЦИОНИРОВАННО
+TX-0203 | LAB-ACC-0018 | LAB-ACC-0018 | LAB-ACC-0031 | LAB-ACC-0031 | нет заявки | статус APPROVED->SETTLED | НЕСАНКЦИОНИРОВАННО
+
+(остальные 236 строк: получатель совпадает во всех 4 источниках, изменился только статус APPROVED->SETTLED)

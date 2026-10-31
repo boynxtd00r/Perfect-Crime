@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "columns": [
+    "count(*)"
+  ],
+  "rows": [
+    [
+      2
+    ]
+  ],
+  "truncated": false,
+  "cells_truncated": false
+}

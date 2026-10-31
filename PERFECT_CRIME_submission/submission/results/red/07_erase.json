@@ -1,0 +1,6 @@
+{
+  "allowed": true,
+  "event_id": "SANDBOX-000002",
+  "deleted_rows": 1,
+  "reason": "Удалён только локальный аудит выбранного actor; внешний журнал сохранён"
+}

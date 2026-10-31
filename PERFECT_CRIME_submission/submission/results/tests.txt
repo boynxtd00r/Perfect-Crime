@@ -1,0 +1,22 @@
+test_chain_is_checked_even_if_manifest_is_updated (test_lab.LabTest.test_chain_is_checked_even_if_manifest_is_updated) ... ok
+test_evidence_manifest_and_health (test_lab.LabTest.test_evidence_manifest_and_health) ... ok
+test_journal_failure_rolls_back_local_mutation_and_audit (test_lab.LabTest.test_journal_failure_rolls_back_local_mutation_and_audit) ... ok
+test_manifest_detects_modified_missing_and_extra_files (test_lab.LabTest.test_manifest_detects_modified_missing_and_extra_files) ... ok
+test_protected_denies_service_unknown_and_audit_erase (test_lab.LabTest.test_protected_denies_service_unknown_and_audit_erase) ... ok
+test_protected_finance_exact_ticket_succeeds (test_lab.LabTest.test_protected_finance_exact_ticket_succeeds) ... ok
+test_query_bounds_rows_and_recursive_work (test_lab.LabTest.test_query_bounds_rows_and_recursive_work) ... ok
+test_query_denies_write_attach_pragma_and_multiple_sql (test_lab.LabTest.test_query_denies_write_attach_pragma_and_multiple_sql) ... ok
+test_query_read_only_select_cte_and_schema (test_lab.LabTest.test_query_read_only_select_cte_and_schema) ... ok
+test_report_format_has_no_answer_oracle (test_lab.LabTest.test_report_format_has_no_answer_oracle) ... ok
+test_report_rejects_empty_duplicate_placeholder_and_unordered (test_lab.LabTest.test_report_rejects_empty_duplicate_placeholder_and_unordered) ... ok
+test_reset_after_crashed_wal_writer_restores_baseline (test_lab.LabTest.test_reset_after_crashed_wal_writer_restores_baseline) ... ok
+test_reset_refuses_evidence_overlap_symlinks_and_hardlinks (test_lab.LabTest.test_reset_refuses_evidence_overlap_symlinks_and_hardlinks) ... ok
+test_reset_refuses_unsafe_sqlite_sidecar (test_lab.LabTest.test_reset_refuses_unsafe_sqlite_sidecar) ... ok
+test_reset_requires_flag_preserves_unrelated_file (test_lab.LabTest.test_reset_requires_flag_preserves_unrelated_file) ... ok
+test_sandbox_journal_tamper_is_detected (test_lab.LabTest.test_sandbox_journal_tamper_is_detected) ... ok
+test_vulnerable_redirect_and_local_cleanup_preserves_external (test_lab.LabTest.test_vulnerable_redirect_and_local_cleanup_preserves_external) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.274s
+
+OK

@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "columns": [
+    "tx_id",
+    "created_at",
+    "from_account",
+    "to_account",
+    "amount_minor",
+    "currency",
+    "status",
+    "updated_at"
+  ],
+  "rows": [
+    [
+      "TX-0042",
+      "2026-04-16T08:10:15Z",
+      "LAB-ACC-0001",
+      "LAB-ACC-0012",
+      3753747,
+      "RUB",
+      "APPROVED",
+      "2026-04-16T09:30:00Z"
+    ]
+  ],
+  "truncated": false,
+  "cells_truncated": false
+}

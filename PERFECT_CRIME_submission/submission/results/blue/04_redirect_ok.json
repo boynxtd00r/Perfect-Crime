@@ -1,0 +1,11 @@
+{
+  "allowed": true,
+  "event_id": "SANDBOX-000001",
+  "before": {
+    "to_account": "LAB-ACC-0012"
+  },
+  "after": {
+    "to_account": "LAB-ACC-0030"
+  },
+  "reason": "Точное согласованное изменение"
+}

@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "events_verified": 2,
+  "sqlite": {
+    "integrity": "ok",
+    "foreign_key_errors": 0
+  },
+  "limitation": "Цепочка без внешней контрольной точки не доказывает отсутствие усечения хвоста"
+}

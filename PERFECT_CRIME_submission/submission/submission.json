@@ -1,0 +1,256 @@
+{
+  "team": "Команда (замените на название вашей команды)",
+  "unauthorized_tx_ids": [
+    "TX-0071",
+    "TX-0128",
+    "TX-0203"
+  ],
+  "diverted_amount_minor": 495000000,
+  "actor": "svc_reconcile",
+  "session_id": "sess-recon-77",
+  "timeline": [
+    {
+      "at": "2026-04-16T09:40:00Z",
+      "event_id": "IDN-01",
+      "interpretation": "LOGIN svc_reconcile sess-recon-50 с 192.0.2.50 (service_key): штатный сеанс, другой диапазон адресов, чем sess-recon-77 (identity_events.csv, строка 1)"
+    },
+    {
+      "at": "2026-04-16T09:45:00Z",
+      "event_id": "IDN-02",
+      "interpretation": "LOGOUT sess-recon-50 (identity_events.csv, строка 2); сеанс до инцидента, изменений бизнес-строк в нём нет"
+    },
+    {
+      "at": "2026-04-16T09:50:00Z",
+      "event_id": "EVT-0001",
+      "interpretation": "IMPORT_BATCH batch_loader, 240 строк (collector_audit.jsonl seq 1); начало цепочки, prev_hash из нулей"
+    },
+    {
+      "at": "2026-04-16T09:55:00Z",
+      "event_id": "EVT-0002",
+      "interpretation": "APPROVE_BATCH finance_approver, 240 строк (seq 2); пакет утверждён, совпадает с payment_orders.csv"
+    },
+    {
+      "at": "2026-04-16T09:58:00Z",
+      "event_id": "TKT-2048",
+      "interpretation": "Заявка TKT-2048 APPROVED finance_approver: TX-0042 LAB-ACC-0012 -> LAB-ACC-0030 (change_requests.csv); разрешение выдано до исполнения изменения"
+    },
+    {
+      "at": "2026-04-16T10:00:00Z",
+      "event_id": "SNAPSHOT-BEFORE",
+      "interpretation": "Снимок до: 240 транзакций APPROVED, получатели равны payment_orders.csv; LAB-ACC-0031 получателем не является"
+    },
+    {
+      "at": "2026-04-16T10:00:30Z",
+      "event_id": "EVT-0003",
+      "interpretation": "SESSION_START finance_operator sess-fin-12, password+mfa, 192.0.2.12 (collector seq 3; IDN строка 3)"
+    },
+    {
+      "at": "2026-04-16T10:01:10Z",
+      "event_id": "EVT-0004",
+      "interpretation": "UPDATE_RECIPIENT TX-0042 0012->0030 по TKT-2048 от finance_operator в sess-fin-12: законное исправление (заявка APPROVED, точное совпадение полей, роль APPROVED_TICKET_ONLY); запись сохранилась в local_audit"
+    },
+    {
+      "at": "2026-04-16T10:02:20Z",
+      "event_id": "EVT-0005",
+      "interpretation": "SESSION_START svc_reconcile sess-recon-77 с 198.51.100.77 (service_key): новый источник; вход под сервисной идентичностью с иным адресом, чем sess-recon-50"
+    },
+    {
+      "at": "2026-04-16T10:02:21Z",
+      "event_id": "IDN-05",
+      "interpretation": "DENIED: вход finance_operator паролем без MFA (sess-fin-deny) с того же 198.51.100.77, через секунду после входа svc_reconcile; попытка повышения привилегий с того же источника, но одного человека это не доказывает"
+    },
+    {
+      "at": "2026-04-16T10:03:00Z",
+      "event_id": "TKT-2051",
+      "interpretation": "Заявка TKT-2051 TX-0128 LAB-ACC-0006 -> LAB-ACC-0031 REJECTED finance_approver: разрешения на это изменение нет"
+    },
+    {
+      "at": "2026-04-16T10:04:00Z",
+      "event_id": "EVT-0006",
+      "interpretation": "READ_BATCH svc_reconcile, 240 строк (sess-recon-77): чтение разрешено access_matrix, рекогносцировка перед изменениями"
+    },
+    {
+      "at": "2026-04-16T10:05:11Z",
+      "event_id": "EVT-0007",
+      "interpretation": "UPDATE_RECIPIENT TX-0071 LAB-ACC-0024 -> LAB-ACC-0031 от svc_reconcile, заявки нет; политика запрещает (change_recipient=NO). В local_audit отсутствует"
+    },
+    {
+      "at": "2026-04-16T10:06:23Z",
+      "event_id": "EVT-0008",
+      "interpretation": "UPDATE_RECIPIENT TX-0128 LAB-ACC-0006 -> LAB-ACC-0031 от svc_reconcile со ссылкой на REJECTED TKT-2051; запрещено. В local_audit отсутствует"
+    },
+    {
+      "at": "2026-04-16T10:07:32Z",
+      "event_id": "EVT-0009",
+      "interpretation": "UPDATE_RECIPIENT TX-0203 LAB-ACC-0018 -> LAB-ACC-0031 от svc_reconcile, заявки нет; запрещено. В local_audit отсутствует"
+    },
+    {
+      "at": "2026-04-16T10:08:10Z",
+      "event_id": "EVT-0010",
+      "interpretation": "DELETE_LOCAL_AUDIT svc_reconcile, deleted_rows=3, фильтр actor=svc_reconcile и action=UPDATE_RECIPIENT: выборочная очистка ровно трёх следов; delete_local_audit=NO. Сама запись очистки в local_audit не сохранилась"
+    },
+    {
+      "at": "2026-04-16T10:12:41Z",
+      "event_id": "LAB-BANK-0042",
+      "interpretation": "Банк исполнил TX-0042 на LAB-ACC-0030, 3753747 коп. (bank_ledger.csv): совпадает с заявкой TKT-2048"
+    },
+    {
+      "at": "2026-04-16T10:13:10Z",
+      "event_id": "LAB-BANK-0071",
+      "interpretation": "Банк исполнил TX-0071 на LAB-ACC-0031, 125000000 коп. вместо LAB-ACC-0024 по поручению"
+    },
+    {
+      "at": "2026-04-16T10:14:07Z",
+      "event_id": "LAB-BANK-0128",
+      "interpretation": "Банк исполнил TX-0128 на LAB-ACC-0031, 170000000 коп. вместо LAB-ACC-0006 по поручению"
+    },
+    {
+      "at": "2026-04-16T10:15:22Z",
+      "event_id": "LAB-BANK-0203",
+      "interpretation": "Банк исполнил TX-0203 на LAB-ACC-0031, 200000000 коп. вместо LAB-ACC-0018 по поручению"
+    },
+    {
+      "at": "2026-04-16T10:16:00Z",
+      "event_id": "EVT-0011",
+      "interpretation": "SETTLE_BATCH settlement_worker, 240 строк, LAB-BATCH-0416: отметка завершения пакета (исполнение в банке 10:12:00-10:15:59); все 240 строк стали SETTLED"
+    },
+    {
+      "at": "2026-04-16T10:17:00Z",
+      "event_id": "EVT-0012",
+      "interpretation": "SESSION_END svc_reconcile sess-recon-77 (collector seq 12; IDN строка 6): сеанс охватывает все три подмены и очистку; последний хеш цепочки 42ca4671...25f7d"
+    },
+    {
+      "at": "2026-04-16T10:20:00Z",
+      "event_id": "SNAPSHOT-AFTER",
+      "interpretation": "Снимок после: 240 SETTLED, у 4 строк изменён получатель (1 законная + 3 нет), accounts не менялась; local_audit содержит EVT-0001, 0002, 0004, 0006, 0011"
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Получатели трёх транзакций изменены на LAB-ACC-0031 без разрешения; банк исполнил платежи на этот счёт",
+      "source": "evidence/payment_orders.csv; snapshot_before.sqlite; snapshot_after.sqlite; bank_ledger.csv",
+      "reference": "TX-0071, TX-0128, TX-0203; results/reconcile.txt"
+    },
+    {
+      "claim": "Сумма подменённых исполненных платежей 495000000 копеек (125000000 + 170000000 + 200000000), каждая tx один раз",
+      "source": "evidence/bank_ledger.csv",
+      "reference": "LAB-BANK-0071, LAB-BANK-0128, LAB-BANK-0203; scripts/reconcile.py"
+    },
+    {
+      "claim": "TX-0042 изменена законно: заявка APPROVED, old/new совпадают, роль finance_operator, статус APPROVED, MFA-сеанс",
+      "source": "evidence/change_requests.csv; collector_audit.jsonl",
+      "reference": "TKT-2048; EVT-0004; sess-fin-12"
+    },
+    {
+      "claim": "Заявка на TX-0128 имеет статус REJECTED, то есть разрешения нет; svc_reconcile сослался на неё",
+      "source": "evidence/change_requests.csv; collector_audit.jsonl",
+      "reference": "TKT-2051; EVT-0008"
+    },
+    {
+      "claim": "Все три подмены выполнены svc_reconcile в сеансе sess-recon-77 до исполнения платежей",
+      "source": "evidence/collector_audit.jsonl",
+      "reference": "EVT-0007, EVT-0008, EVT-0009 (10:05:11-10:07:32); bank settled_at 10:13:10-10:15:22"
+    },
+    {
+      "claim": "svc_reconcile не имел права менять получателя и удалять аудит",
+      "source": "evidence/access_matrix.csv",
+      "reference": "строка svc_reconcile: change_recipient=NO, delete_local_audit=NO"
+    },
+    {
+      "claim": "Локальный аудит очищен выборочно: из local_audit пропали три UPDATE_RECIPIENT svc_reconcile и сама запись очистки, внешний коллектор их сохранил",
+      "source": "snapshot_after.sqlite (local_audit) и collector_audit.jsonl",
+      "reference": "EVT-0007, EVT-0008, EVT-0009, EVT-0010 (deleted_rows=3)"
+    },
+    {
+      "claim": "Сеанс sess-recon-77 открыт с 198.51.100.77, отличного от прежнего источника сервисного ключа 192.0.2.50; в ту же секунду с этого адреса отклонён вход finance_operator",
+      "source": "evidence/identity_events.csv",
+      "reference": "строки sess-recon-50, sess-recon-77, sess-fin-deny"
+    },
+    {
+      "claim": "Хеш-цепочка внешнего коллектора непрерывна и независимо пересчитана (12 событий)",
+      "source": "evidence/collector_audit.jsonl",
+      "reference": "results/verify.json (events_verified=12), последний hash 42ca46718a9d03b0c588d87d907fbce9a912076f11ce044e766c07d7d1b25f7d"
+    },
+    {
+      "claim": "Все три подмены ведут на LAB-ACC-0031: до инцидента этот счёт не был получателем, после получил 3 платежа; суммы 1 250 000-2 000 000 руб. в 29-47 раз выше медианы пакета (42 714,62 руб.)",
+      "source": "snapshot_before.sqlite; snapshot_after.sqlite",
+      "reference": "transactions.to_account = 'LAB-ACC-0031'"
+    }
+  ],
+  "red_team": {
+    "vulnerable_event_id": "SANDBOX-000001",
+    "protected_denied": true,
+    "journal_survives_cleanup": true,
+    "evidence": [
+      "results/red/01_init.json",
+      "results/red/02_before.json",
+      "results/red/04_redirect.json",
+      "results/red/05_after.json",
+      "results/red/06_audit_mid.json",
+      "results/red/07_erase.json",
+      "results/red/08_audit_after_erase.json",
+      "results/red/09_verify_sandbox.json",
+      "results/red/sandbox_audit.jsonl",
+      "results/protected/03_redirect_denied.json",
+      "results/protected/03_redirect_denied.exit.txt",
+      "results/protected/04_after.json",
+      "results/protected/05_erase_denied.json",
+      "results/protected/05_erase_denied.exit.txt",
+      "results/protected/sandbox_audit.jsonl"
+    ]
+  },
+  "blue_team": {
+    "allowed_finance_change": true,
+    "denied_service_change": true,
+    "denied_audit_delete": true,
+    "evidence": [
+      "results/blue/02_tx0042_before.json",
+      "results/blue/04_redirect_ok.json",
+      "results/blue/05_tx0042_after.json",
+      "results/blue/06_audit_after.json",
+      "results/blue/07_verify_sandbox.json",
+      "results/blue/finance_sandbox_audit.jsonl",
+      "results/protected/03_redirect_denied.json",
+      "results/protected/04_after.json",
+      "results/protected/05_erase_denied.json",
+      "results/blue/12_neg_rejected_ticket.json",
+      "results/blue/14_neg_wrong_tx_ticket.json",
+      "results/blue/16_neg_finance_erase.json",
+      "results/blue/17_neg_after.json",
+      "results/blue/neg_sandbox_audit.jsonl"
+    ]
+  },
+  "controls": [
+    {
+      "control": "Предотвращение (граница приложения/БД): у сервисной роли сверки нет права записи в transactions.to_account; смена получателя только через отдельную роль и API с проверкой APPROVED-заявки (old, new, tx, статус)",
+      "test": "Положительный: finance_operator, TX-0042, TKT-2048 -> код 0, получатель и updated_at изменены, добавлена запись аудита. Отрицательный: svc_reconcile, REJECTED TKT-2051, чужая tx или заявка без номера -> код 2, строка не изменена",
+      "limitation": "В файловой SQLite правило держит само приложение: владелец файла или кода его обходит; в промышленной системе нужны серверная СУБД с GRANT/REVOKE, отдельные учётные записи и ограничение доступа к файлам"
+    },
+    {
+      "control": "Обнаружение (граница хранения аудита): события пишутся во внешний append-only/WORM-коллектор с подписанными контрольными точками, недоступный сервисной учётной записи; тревога на DELETE_LOCAL_AUDIT и на разрыв event_id",
+      "test": "Выполнить очистку в vulnerable (erase-local-audit) и сравнить local_audit с sandbox_audit.jsonl: внешний журнал содержит запись очистки, локальный нет, verify-sandbox ok. Отрицательный: protected -> отказ с кодом 2 и DENY в журнале",
+      "limitation": "Хеш-цепочка без доверенной внешней контрольной точки не исключает замену всего журнала и обрезку хвоста; файл sandbox принадлежит тому же локальному пользователю и не является защищённым коллектором"
+    },
+    {
+      "control": "Обнаружение/предотвращение (граница расчётов): обязательная сверка получателей и сумм с payment_orders.csv до отправки пакета в банк (hold-and-release)",
+      "test": "scripts/reconcile.py на снимке перед SETTLE_BATCH должен остановить выпуск и вывести TX-0071, TX-0128, TX-0203, при этом не блокировать законную TX-0042 с заявкой",
+      "limitation": "Не защищает от подделки самих поручений и от сговора с approver; сверка должна выполняться в контуре, недоступном изменяющей учётной записи"
+    },
+    {
+      "control": "Реагирование: правила аномалий (сервисный ключ с нового IP, платежи далеко выше медианы пакета, новый получатель LAB-ACC-0031), немедленная ротация service key, hold на незавершённые платежи, запрос отзыва в банк, независимая повторная сверка",
+      "test": "Прогнать журнал инцидента через правила: срабатывание на EVT-0005 (новый IP 198.51.100.77) и EVT-0007..0009 (изменение получателя сервисной ролью без заявки)",
+      "limitation": "Исправление строки SQLite не возвращает деньги: три платежа уже исполнены (SETTLED), возврат зависит от банка и получателя"
+    }
+  ],
+  "limitations": [
+    "Данные и инфраструктура синтетические; внешний реестр и коллектор считаются независимыми по условию упражнения, происхождение их выгрузки не подтверждено",
+    "MANIFEST.sha256 лежит в том же ZIP и не подписан: совпадение SHA-256 подтверждает лишь соответствие полученным байтам, но не подлинность источника",
+    "PRAGMA integrity_check=ok и foreign_key_errors=0 проверяют структуру SQLite; они не обнаруживают подмену получателя на другой существующий счёт",
+    "Хеш-цепочка collector_audit.jsonl непрерывна, но без подписи и внешней контрольной точки полную замену журнала и обрезку хвоста исключить нельзя",
+    "Идентичность svc_reconcile и сеанс sess-recon-77 доказывают использование сервисного ключа с адреса 198.51.100.77, но не личность человека: ключ мог быть скомпрометирован, общим или выпущен нескольким лицам; нужны журналы выдачи и хранения ключа, сетевые/VPN/NAT-логи, логи конечных устройств, опрос владельцев",
+    "Попытка входа finance_operator с того же IP в 10:02:21 указывает на общий источник, но не доказывает одного исполнителя",
+    "Отметка SETTLE_BATCH 10:16:00 позже settled_at строк банка (10:12:00-10:15:59) и трактуется как время завершения пакета; в before updated_at (09:30:00) раньше IMPORT_BATCH (09:50:00) - синтетическая неточность, на выводы не влияет",
+    "Роли в стенде выбираются вручную, настоящей аутентификации нет; sandbox-журнал в том же каталоге владельца и не атомарен вместе с SQLite при аварийном завершении",
+    "Эксперимент Red Team выполнен на TX-0001 / LAB-ACC-0033 по учебному примеру и не является воспроизведением исторического инцидента"
+  ]
+}

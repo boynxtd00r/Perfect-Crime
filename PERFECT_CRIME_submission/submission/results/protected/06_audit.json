@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "columns": [
+    "seq",
+    "event_id",
+    "actor",
+    "action",
+    "tx_id"
+  ],
+  "rows": [
+    [
+      1,
+      "EVT-0001",
+      "batch_loader",
+      "IMPORT_BATCH",
+      null
+    ],
+    [
+      2,
+      "EVT-0002",
+      "finance_approver",
+      "APPROVE_BATCH",
+      null
+    ]
+  ],
+  "truncated": false,
+  "cells_truncated": false
+}

@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "columns": [
+    "seq",
+    "event_id",
+    "actor",
+    "action",
+    "tx_id"
+  ],
+  "rows": [
+    [
+      1,
+      "EVT-0001",
+      "batch_loader",
+      "IMPORT_BATCH",
+      null
+    ],
+    [
+      2,
+      "EVT-0002",
+      "finance_approver",
+      "APPROVE_BATCH",
+      null
+    ],
+    [
+      3,
+      "SANDBOX-000001",
+      "svc_reconcile",
+      "UPDATE_RECIPIENT",
+      "TX-0001"
+    ]
+  ],
+  "truncated": false,
+  "cells_truncated": false
+}
